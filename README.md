@@ -5,11 +5,10 @@
 ### Usage example:
 
 ```lua
-
 local folder_name = "city" -- can be 'city' or 'room'
 
 local function load(folder)
-return loadstring(game:HttpGet("https://raw.githubusercontent.com/GTX1O8OTi/Graphics/main/"..folder.."/script.lua"))
+return loadstring(game:HttpGet("https://raw.githubusercontent.com/GTX1O8OTi/Graphics/main/"..folder.."/script.lua"))()
 end
 
 load(folder_name)
