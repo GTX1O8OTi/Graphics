@@ -1,5 +1,6 @@
 getgenv().environment = true
 local l = game.Lighting
+
 local success, err = pcall(function()
 	if getgenv().environment == true then
 	l.EnvironmentDiffuseScale = 0.2
@@ -48,7 +49,6 @@ local color_boost = {
 	["claridade"] = 0,
 }
 
--- x("nome do efeito") || exemplo: x("ColorCorrection")
 local function x(b)
 	for i,v in pairs(game.Lighting:GetDescendants()) do
 		if v:IsA(b) then
