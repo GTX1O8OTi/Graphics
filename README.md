@@ -7,6 +7,9 @@
 ```lua
 local folder_name = "city" -- can be 'city' or 'room'
 
+getgenv().environment = false
+getgenv().FutureLighting = false
+
 local function load(folder)
 return loadstring(game:HttpGet("https://raw.githubusercontent.com/GTX1O8OTi/Graphics/main/"..folder.."/script.lua"))()
 end
