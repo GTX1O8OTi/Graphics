@@ -1,5 +1,6 @@
-getgenv().environment = true
 local l = game.Lighting
+
+
 
 local success, err = pcall(function()
 	if getgenv().environment == true then
