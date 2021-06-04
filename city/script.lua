@@ -1,6 +1,8 @@
 local l = game.Lighting
 
-
+if sethiddenproperty and getgenv().FutureLighting then
+	sethiddenproperty(game.Lighting,"Technology", "Future")
+end
 
 local success, err = pcall(function()
 	if getgenv().environment == true then
