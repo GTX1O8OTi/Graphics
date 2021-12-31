@@ -1,3 +1,5 @@
+local Lighting = game:GetService("Lighting")
+
 
 -- to store just a tiny amount of that the script will use :)
 local variables = {
@@ -6,10 +8,10 @@ local variables = {
 ["BloomEffect"] = true,
 ["BlurEffect"] = true,
 ["ColorCorrectionEffect"] = true,
-["SunRays"] = true,
+["SunRaysEffect"] = true,
 
     ["configs"] = {
-        ["SunRays"] = {
+        ["SunRaysEffect"] = {
             ["Intensity"] = 0.1,
             ["Spread"] = 0.6
         },
@@ -20,7 +22,7 @@ local variables = {
     
         ["BloomEffect"] = {
             ["Intensity"] = 0.4,
-            ["Magnitude"] = 0.95,
+            ["Threshold"] = 0.95,
             ["Size"] = 0.4
         },
     
@@ -31,7 +33,7 @@ local variables = {
         ["ColorCorrectionEffect"] = {
             ["Saturation"] = 0.2,
             ["Contrast"] = 0,
-            ["Brightness"] = 0
+            ["Brightness"] = 555555
         }
     }
 }
@@ -48,10 +50,11 @@ for index, value in pairs (variables) do
     if index == "configs" then continue end
     local object = Instance.new(index)
     for i,v in pairs (variables.configs) do
-        if i == index then
-            for i2,v2 in pairs(i) do
-                object[i2] = v2
-            end
-        end
+    	for i2,v2 in pairs (v) do
+    		--print(i.. " : " .. i2.. " : " .. v2)
+    		if object.ClassName ~= tostring(i) then --[[print("not the same classname! (" .. i .. ") (" .. object.ClassName .. ")");]] continue end
+    		object[i2] = v2
+    		print(object.ClassName .. " - " .. i2 .. " - " .. v2)
+    	end
     end
 end
