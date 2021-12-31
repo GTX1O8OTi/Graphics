@@ -29,11 +29,11 @@ local variables = {
         ["BlurEffect"] = {
             ["Size"] = 0.4
         },
-    
+        
         ["ColorCorrectionEffect"] = {
-            ["Saturation"] = 0.2,
-            ["Contrast"] = 0,
-            ["Brightness"] = 555555
+        ["Saturation"] = 0.1,
+        ["Contrast"] = 0,
+        ["Brightness"] = 0
         }
     }
 }
@@ -48,13 +48,21 @@ end
 
 for index, value in pairs (variables) do
     if index == "configs" then continue end
+    
+    -- creates a new object that can be anything, for example Sky
     local object = Instance.new(index)
+    
+    -- loops through variables.configs
     for i,v in pairs (variables.configs) do
+    
+    	-- a loop inside of variables.config
     	for i2,v2 in pairs (v) do
+    	
     		--print(i.. " : " .. i2.. " : " .. v2)
+    		
+    		-- if the object isn't the classname of what we are going to change, skip it
     		if object.ClassName ~= tostring(i) then --[[print("not the same classname! (" .. i .. ") (" .. object.ClassName .. ")");]] continue end
     		object[i2] = v2
-    		print(object.ClassName .. " - " .. i2 .. " - " .. v2)
     	end
     end
 end
